@@ -15,3 +15,4 @@ En este curso con duración de 6 mese aproximadamente, los asistente comprender�
 | Andrea | García | Ruiz |
 | Luis Martin | Maceda | Nazario |
 | Galileo | Cabrera | Garibaldi |
+| Jose Alejandro | Montecillo | Sandoval |
