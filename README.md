@@ -18,3 +18,6 @@ En este curso con duración de 6 mese aproximadamente, los asistente comprender�
 | Jose Alejandro | Montecillo | Sandoval |
 | Julio César | Martínez | Troncoso |
 | Aurora | Reyes | Aragón |
+| Hector Eduardo | Cabello | Aguilar |
+
+
