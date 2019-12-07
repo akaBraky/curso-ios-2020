@@ -24,3 +24,4 @@ class StudioAlbum: Album {
         return "The studio album \(nombre) sold lots"
     }
 }
+let nombre = "Wolf"
