@@ -3,6 +3,7 @@ import UIKit
 var str = "Hello, playground"
 
 class Album {
+    
     var nombre: String
     
     init(nombre: String) {
@@ -24,4 +25,5 @@ class StudioAlbum: Album {
     override func getPerformance() -> String {
         return "The studio album \(nombre) sold lots"
     }
+
 }
