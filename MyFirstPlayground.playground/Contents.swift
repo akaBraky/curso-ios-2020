@@ -3,6 +3,7 @@ import UIKit
 var str = "Hello, playground"
 
 class Album {
+    
     var nombre: String
     
     init(nombre: String) {
@@ -25,3 +26,4 @@ class StudioAlbum: Album {
         return "The studio album \(nombre) sold lots"
     }
 }
+
