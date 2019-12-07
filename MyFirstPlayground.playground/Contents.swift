@@ -1,7 +1,6 @@
 import UIKit
 
 var str = "Hello, playground"
-
 class Album {
     var nombre: String
     
