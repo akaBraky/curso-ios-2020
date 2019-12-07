@@ -26,3 +26,4 @@ class StudioAlbum: Album {
     }
 
 }
+let nombre = "Cabello Aguilar Hector Eduardo"
