@@ -1,0 +1,24 @@
+Unindad mas basica de git es el commit
+Acceso a la carpeta oculta .git guarda toda la informaciòn del repo y podemos agregar la informaciòn
+
+Git pull
+Hace un fetch para hacer los cambios
+Hace un merge para juntar los cambios remotos y los locales
+
+Buenas Practicas para hacer mensajes de commit.
+
+The type is contained within the title and can be one of these types:
+
+    feat: a new feature
+    fix: a bug fix
+    docs: changes to documentation
+    style: formatting, missing semi colons, etc; no code change
+    refactor: refactoring production code --ReescribirCòdigo
+    test: adding tests, refactoring test; no production code change
+    chore: updating build tasks, package manager configs, etc; no production code change --Actualizaciòn de dependencias.
+
+
+feat:  Started my first playground.
+Hacer chrpick fgh
+
+git branch <rama> <sha_commit>
