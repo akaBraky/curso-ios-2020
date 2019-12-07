@@ -2,6 +2,5 @@ import Cocoa
 
 var str = "Hello, playground"
 
-let impresion = "Hola"
+let nombre2 = "Aurora"
 
-print(impresion)
