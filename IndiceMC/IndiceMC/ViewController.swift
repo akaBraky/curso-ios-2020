@@ -35,8 +35,40 @@ class ViewController: UIViewController,UITextFieldDelegate {
         }
         
         let Imccal:Double = kg/(pow(m,2))
-        
-        IMC.text = String(format: "%.2f", Imccal)
+            
+            IMC.text = String(format: "%.2f", Imccal)
+            
+            //No se puede un switch porque hablamos de valores decimales
+            if Imccal<18.5{
+                resultado.text = estados[0]
+                imagen.image = UIImage(named: imagenes[5])
+            }else{
+                if Imccal >= 18.5 && Imccal < 25{
+                    resultado.text = estados[1]
+                    imagen.image = UIImage(named: imagenes[4])
+                }else{
+                    if Imccal >= 25 && Imccal<30{
+                        resultado.text = estados[2]
+                        imagen.image = UIImage(named: imagenes[3])
+                    }else{
+                        if Imccal >= 30 && Imccal<35{
+                            resultado.text = estados[3]
+                            imagen.image = UIImage(named: imagenes[2])
+                        }else{
+                            if Imccal >= 35 && Imccal<40{
+                                resultado.text = estados[4]
+                                imagen.image = UIImage(named: imagenes[1])
+                            }else{
+                                if Imccal >= 40{
+                                    resultado.text = estados[5]
+                                    imagen.image = UIImage(named: imagenes[0])
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
         
     }
     @IBOutlet var imagen: UIImageView!
