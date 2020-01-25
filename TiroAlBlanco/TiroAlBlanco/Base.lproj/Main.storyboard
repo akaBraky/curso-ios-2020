@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="landscape" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WhatsApp Image 2020-01-18 at 1.39.16 PM" translatesAutoresizingMaskIntoConstraints="NO" id="mF3-5z-CV5">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="mF3-5z-CV5">
                                 <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="667-nR-aU5">
@@ -23,6 +23,9 @@
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hsk-eQ-myo">
                                         <rect key="frame" x="60" y="108" width="367" height="31"/>
+                                        <connections>
+                                            <action selector="sliderAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="HbD-9O-xIm"/>
+                                        </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0CP-gy-5z8">
                                         <rect key="frame" x="27" y="112.5" width="8" height="21"/>
@@ -42,11 +45,6 @@
                                         <connections>
                                             <action selector="showAlert:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Do4-Ix-UVD"/>
                                         </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YpN-zn-Ugb">
-                                        <rect key="frame" x="440" y="270" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="!"/>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LPf-wo-qdd">
                                         <rect key="frame" x="58" y="8" width="422" height="37"/>
@@ -118,13 +116,16 @@
                                             <constraint firstItem="teM-vR-gjR" firstAttribute="leading" secondItem="j2J-ku-CPx" secondAttribute="trailing" constant="8" id="xRs-xh-b6a"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9K-pM-MkI">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9K-pM-MkI">
                                         <rect key="frame" x="32" y="269" width="32" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="V7O-aM-WAt"/>
                                             <constraint firstAttribute="width" constant="32" id="ufS-aW-aou"/>
                                         </constraints>
-                                        <state key="normal" title="Start Over"/>
+                                        <state key="normal" image="StartOverIcon"/>
+                                        <connections>
+                                            <action selector="startNewAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9xd-jU-jqH"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -162,7 +163,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="roundLabel" destination="teM-vR-gjR" id="YuP-jc-iNa"/>
+                        <outlet property="scoreLabel" destination="ohK-9V-omI" id="OPR-tM-4Dw"/>
                         <outlet property="showAlert" destination="bqO-dM-Zjb" id="njn-to-le2"/>
+                        <outlet property="slider" destination="hsk-eQ-myo" id="GHd-oG-agp"/>
+                        <outlet property="targetNumber" destination="OrZ-1G-q8v" id="1qH-sX-KmE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -171,6 +176,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="WhatsApp Image 2020-01-18 at 1.39.16 PM" width="568" height="320"/>
+        <image name="Background" width="568" height="320"/>
+        <image name="StartOverIcon" width="20" height="20"/>
     </resources>
 </document>
