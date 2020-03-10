@@ -1,0 +1,107 @@
+//
+//  ViewController.swift
+//  MyToDoList
+//
+//  Created by Becario on 2/22/20.
+//  Copyright © 2020 Fernando. All rights reserved.
+//
+
+import UIKit
+
+class ToDoListTableViewController: UITableViewController {
+    
+    // MARK: - Properties
+    var taskStore : TaskStore! {
+        didSet{
+            taskStore.tasks = TaskStorage.fetch() ?? [[Task]()]
+            tableView.reloadData()
+        }
+    }
+    
+    //MARK:- Outlet
+    @IBOutlet weak var addTaskButton: UIBarButtonItem!
+    
+    // MARK:- Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        taskStore = TaskStore()
+        tableView.tableFooterView = UIView()
+    }
+    
+    // MARK:- Actions
+    @IBAction func addTaskButtonAction(_ sender: Any) {
+        let alertController: UIAlertController = UIAlertController(title:"Add Task", message:nil, preferredStyle: .alert)
+        
+        let addAction: UIAlertAction = UIAlertAction(title: "Add", style: .default){
+            [weak self] _ in
+            guard let name =  alertController.textFields?.first?.text else { return }
+            let newTask = Task(name: name, isDone: false)
+            
+            self?.taskStore.add(newTask, at: 0)
+            let indexPath = IndexPath(row: 0, section: 0)
+            self?.tableView.insertRows(at: [indexPath], with: .automatic)
+        }
+        
+        addAction.isEnabled = false
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alertController.addTextField{ [weak self] textField in
+            textField.placeholder = "Ingresa tu tarea"
+            textField.addTarget(self, action: #selector(self?.handleTextChanged), for: .editingChanged)
+        }
+        
+        alertController.addAction(addAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+        
+    }
+    
+    @objc private func handleTextChanged (_ sender: UITextField){
+        guard let alertController  = presentedViewController as? UIAlertController, let addAction = alertController.actions.first,
+        let text = sender.text
+        else { return }
+        
+        addAction.isEnabled = !text.trimmingCharacters(in: .whitespaces).isEmpty
+    }
+    
+}
+
+// Mark: - DataSource
+extension ToDoListTableViewController {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return section == 0 ? "TO-DO" : "DONE"
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return taskStore.tasks.count
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return taskStore.tasks[section].count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = taskStore.tasks[indexPath.section][indexPath.row].name
+        return cell
+    }
+}
+
+// Mark :- Table View Delegate
+extension ToDoListTableViewController {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: nil){ (action, sourceView, completionHandler) in
+            let isDone = self.taskStore.tasks[indexPath.section][indexPath.row].isDone
+            self.taskStore.removeTask(at: indexPath.row, isDone: isDone)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            completionHandler(true)
+        }
+        deleteAction.backgroundColor = .red
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+}
