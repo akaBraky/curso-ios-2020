@@ -1,0 +1,6 @@
+framework module Pods_Trazabilidad {
+  umbrella header "Pods-Trazabilidad-umbrella.h"
+
+  export *
+  module * { export * }
+}

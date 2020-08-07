@@ -1,0 +1,6 @@
+framework module Pods_TrazabilidadUITests {
+  umbrella header "Pods-TrazabilidadUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
