@@ -34,8 +34,15 @@ He visto algunos que hacen
 
 #### 7. ¿Utilizas una herramienta específica 'POD' para realizar peticiones a una RESTAPI o solo en URLSession y URLRequest se la llevan?
 
-##### ¿Además, utilizas 'SwiftyJSON' (instalando el pod) para tratar con los JSON o tratas con JSON de manera distinta? 
+** ¿Además, utilizas 'SwiftyJSON' (instalando el pod) para tratar con los JSON o tratas con JSON de manera distinta? **
 
 > Me refiero a los parámetros, cómo le haces para los JWT en caso que te comuniques con un Express de NodeJS. O bueno mejor xd, ¿cómo le haces para hacer una app con Back? 😅
 
+#### 8. ¿Cuál es la forma ideal para pasar parámetros entre Storyboards? ¿Por segues todo? ¿Y si tengo muchas cosas que pasar?
 
+> Ejemplo, yo tenía varios TableView en varios ViewControllers, para hacer selección de selección de selección de celda hice la ñera de variables estáticas o un arreglo de arreglo de arreglo para saber cuál se seleccionó. 
+
+#### 9. Para colocar una UITableViewCell o una UICollectionViewCell personalizada o sea que tenga una imagen, título, un switch o lo que sea, ¿es recomendable crear una clase para manejar a éste o la ñera de llevársela con arreglos (uno con las letras, otro con los nombres de las imágenes y así)?
+
+> También, si suelen poner todos los strings o los textos de la app dentro de los códigos en Model o los Controllers o como en Android, mandan todos los textos estáticos a un algo como un Strings.xml, para que se vea más limpio el código. 
+ 
