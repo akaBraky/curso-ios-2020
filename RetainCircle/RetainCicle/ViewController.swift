@@ -15,7 +15,6 @@ class ViewController: UIViewController {
         let secondStoryboard = UIStoryboard(name: "SecondStoryboard",bundle: nil)
         let secondVC = secondStoryboard.instantiateViewController(identifier: "SecondViewController") as! SecondViewController
         self.navigationController?.pushViewController(secondVC, animated: true)
-        Int
     }
     deinit {
         print("Ya lo perdí x2")
