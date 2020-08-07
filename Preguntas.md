@@ -38,7 +38,7 @@ He visto algunos que hacen
 
 > Me refiero a los parámetros, cómo le haces para los JWT en caso que te comuniques con un Express de NodeJS. O bueno mejor xd, ¿cómo le haces para hacer una app con Back? 😅
 
-#### 8. ¿Cuál es la forma ideal para pasar parámetros entre Storyboards? ¿Por segues todo? ¿Y si tengo muchas cosas que pasar?
+#### 8. ¿Cuál es la forma ideal para pasar parámetros entre ViewControllers? ¿Por segues todo? ¿Y si tengo muchas cosas que pasar?
 
 > Ejemplo, yo tenía varios TableView en varios ViewControllers, para hacer selección de selección de selección de celda hice la ñera de variables estáticas o un arreglo de arreglo de arreglo para saber cuál se seleccionó. 
 
